@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Briefing Estratégico | Personal Trainer</title>
+    
+    <!-- Tailwind CSS (Framework de Estilo Moderno) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Outfit (Fonte super moderna e limpa) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos Customizados para detalhes finos */
+        body {
+            background-color: #0f172a;
+            /* Fundo com ruído sutil e gradientes animados */
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225,39%,30%,0.2) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(339,49%,30%,0.1) 0, transparent 50%);
+            background-attachment: fixed;
+            color: #f8fafc;
+        }
+
+        /* Efeito Glassmorphism (Vidro) para os cards */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Foco personalizado nos campos de texto */
+        textarea:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+        }
+
+        /* Scrollbar estilizada */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="min-h-screen antialiased selection:bg-brand-500 selection:text-white pb-20">
+
+    <!-- Efeito de Luz no Fundo -->
+    <div class="fixed top-[-10%] left-[-10%] w-96 h-96 bg-brand-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-96 h-96 bg-purple-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24">
+        
+        <!-- Cabeçalho -->
+        <header class="text-center mb-16 opacity-0 translate-y-4 animate-[fadeIn_0.8s_ease-out_forwards]">
+            <div class="inline-flex items-center justify-center p-3 bg-brand-500/10 rounded-2xl mb-6 border border-brand-500/20 text-brand-400">
+                <i data-lucide="target" class="w-8 h-8"></i>
+            </div>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4">
+                Mapeamento <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-purple-400">Estratégico</span>
+            </h1>
+            <p class="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
+                Responda as questões abaixo com o máximo de detalhes possível. Essas informações serão a base para escalarmos o seu negócio.
+            </p>
+        </header>
+
+        <!-- Formulário -->
+        <form id="briefingForm" class="space-y-8" onsubmit="enviarParaWhatsApp(event)">
+            
+            <!-- Pergunta 1 -->
+            <div class="glass-card rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:border-brand-500/30 group">
+                <label for="q1" class="flex flex-col gap-3 cursor-pointer">
+                    <div class="flex items-start gap-3">
+                        <span class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-brand-400 font-bold text-sm border border-slate-700">1</span>
+                        <span class="text-lg font-medium text-slate-200 group-hover:text-white transition-colors">
+                            Quem é o seu <span class="text-brand-400">aluno ideal?</span> Qual é o perfil de pessoa que você mais gosta de atender e que mais tem resultados com a sua metodologia?
+                        </span>
+                    </div>
+                    <textarea id="q1" rows="4" required placeholder="Ex: Mulheres de 30 a 45 anos que não têm muito tempo, mas querem emagrecer..." 
+                        class="mt-2 w-full bg-slate-900/50 border border-slate-700 rounded-2xl p-4 text-slate-300 placeholder-slate-600 resize-y transition-all"></textarea>
+                </label>
+            </div>
+
+            <!-- Pergunta 2 -->
+            <div class="glass-card rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:border-brand-500/30 group">
+                <label for="q2" class="flex flex-col gap-3 cursor-pointer">
+                    <div class="flex items-start gap-3">
+                        <span class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-brand-400 font-bold text-sm border border-slate-700">2</span>
+                        <span class="text-lg font-medium text-slate-200 group-hover:text-white transition-colors">
+                            O que você considera ser o seu <span class="text-brand-400">maior diferencial</span> hoje? O que você entrega no seu acompanhamento que a maioria dos outros personais não entrega?
+                        </span>
+                    </div>
+                    <textarea id="q2" rows="4" required placeholder="Ex: Meu suporte é 24h, analiso o biotipo individualmente, não passo dieta genérica..." 
+                        class="mt-2 w-full bg-slate-900/50 border border-slate-700 rounded-2xl p-4 text-slate-300 placeholder-slate-600 resize-y transition-all"></textarea>
+                </label>
+            </div>
+
+            <!-- Pergunta 3 -->
+            <div class="glass-card rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:border-brand-500/30 group">
+                <label for="q3" class="flex flex-col gap-3 cursor-pointer">
+                    <div class="flex items-start gap-3">
+                        <span class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-brand-400 font-bold text-sm border border-slate-700">3</span>
+                        <span class="text-lg font-medium text-slate-200 group-hover:text-white transition-colors">
+                            O que <span class="text-brand-400">exatamente o aluno recebe</span> na prática ao fechar com você?
+                            <span class="block text-sm text-slate-400 font-normal mt-1">(Ex: acesso a aplicativo próprio, suporte no WhatsApp, correção de vídeos, e-book, avaliação física, etc.)</span>
+                        </span>
+                    </div>
+                    <textarea id="q3" rows="4" required placeholder="Liste as entregas práticas do seu serviço..." 
+                        class="mt-2 w-full bg-slate-900/50 border border-slate-700 rounded-2xl p-4 text-slate-300 placeholder-slate-600 resize-y transition-all"></textarea>
+                </label>
+            </div>
+
+            <!-- Pergunta 4 -->
+            <div class="glass-card rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:border-brand-500/30 group">
+                <label for="q4" class="flex flex-col gap-3 cursor-pointer">
+                    <div class="flex items-start gap-3">
+                        <span class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-brand-400 font-bold text-sm border border-slate-700">4</span>
+                        <span class="text-lg font-medium text-slate-200 group-hover:text-white transition-colors">
+                            Como funcionam os seus <span class="text-brand-400">planos e os valores</span> hoje?
+                            <span class="block text-sm text-slate-400 font-normal mt-1">(Mensal, trimestral, anual, pacotes específicos?)</span>
+                        </span>
+                    </div>
+                    <textarea id="q4" rows="4" required placeholder="Ex: Mensal R$197, Trimestral R$497 (com desconto)..." 
+                        class="mt-2 w-full bg-slate-900/50 border border-slate-700 rounded-2xl p-4 text-slate-300 placeholder-slate-600 resize-y transition-all"></textarea>
+                </label>
+            </div>
+
+            <!-- Pergunta 5 -->
+            <div class="glass-card rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:border-brand-500/30 group">
+                <label for="q5" class="flex flex-col gap-3 cursor-pointer">
+                    <div class="flex items-start gap-3">
+                        <span class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-brand-400 font-bold text-sm border border-slate-700">5</span>
+                        <span class="text-lg font-medium text-slate-200 group-hover:text-white transition-colors">
+                            Você tem materiais de <span class="text-brand-400">prova social?</span>
+                            <span class="block text-sm text-slate-400 font-normal mt-1">(Fotos de antes e depois dos alunos, vídeos de depoimentos ou prints de WhatsApp com a galera elogiando os resultados?)</span>
+                        </span>
+                    </div>
+                    <textarea id="q5" rows="4" required placeholder="Ex: Sim, tenho uma pasta no drive com muitos antes e depois e prints do WhatsApp..." 
+                        class="mt-2 w-full bg-slate-900/50 border border-slate-700 rounded-2xl p-4 text-slate-300 placeholder-slate-600 resize-y transition-all"></textarea>
+                </label>
+            </div>
+
+            <!-- Pergunta 6 -->
+            <div class="glass-card rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:border-brand-500/30 group">
+                <label for="q6" class="flex flex-col gap-3 cursor-pointer">
+                    <div class="flex items-start gap-3">
+                        <span class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-brand-400 font-bold text-sm border border-slate-700">6</span>
+                        <span class="text-lg font-medium text-slate-200 group-hover:text-white transition-colors">
+                            Quais são as <span class="text-brand-400">dúvidas mais comuns</span> ou as maiores desculpas que as pessoas dão na hora de decidir se fecham ou não com você?
+                        </span>
+                    </div>
+                    <textarea id="q6" rows="4" required placeholder="Ex: Dizem que estão sem dinheiro, que não têm tempo, que têm medo de não conseguir seguir..." 
+                        class="mt-2 w-full bg-slate-900/50 border border-slate-700 rounded-2xl p-4 text-slate-300 placeholder-slate-600 resize-y transition-all"></textarea>
+                </label>
+            </div>
+
+            <!-- Botão de Envio -->
+            <div class="pt-8 pb-4 text-center">
+                <button type="submit" class="group relative inline-flex items-center justify-center gap-3 px-8 py-4 font-bold text-white transition-all duration-200 bg-brand-600 font-pj rounded-2xl hover:bg-brand-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-600 focus:ring-offset-slate-900 w-full sm:w-auto overflow-hidden">
+                    <!-- Efeito de brilho no botão -->
+                    <div class="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
+                        <div class="relative h-full w-8 bg-white/20"></div>
+                    </div>
+                    
+                    <span class="relative text-lg">Finalizar e Enviar Respostas</span>
+                    <i data-lucide="send" class="relative w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+                <p class="mt-4 text-sm text-slate-500 flex items-center justify-center gap-2">
+                    <i data-lucide="lock" class="w-4 h-4"></i>
+                    Suas respostas serão enviadas de forma segura via WhatsApp.
+                </p>
+            </div>
+        </form>
+    </main>
+
+    <!-- Keyframes para animação inicial -->
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <!-- Inicializar Ícones -->
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <!-- Lógica de Envio para o WhatsApp -->
+    <script>
+        function enviarParaWhatsApp(event) {
+            // Evita que a página recarregue ao apertar o botão
+            event.preventDefault();
+
+            // O seu número de WhatsApp com o código do país (55) e DDD (86)
+            const numeroWhatsApp = "5586994843759";
+
+            // Captura o valor de todas as respostas
+            const q1 = document.getElementById('q1').value.trim();
+            const q2 = document.getElementById('q2').value.trim();
+            const q3 = document.getElementById('q3').value.trim();
+            const q4 = document.getElementById('q4').value.trim();
+            const q5 = document.getElementById('q5').value.trim();
+            const q6 = document.getElementById('q6').value.trim();
+
+            // Monta a mensagem formatada para o WhatsApp (O asterisco * deixa em negrito no Whats)
+            let mensagem = `🚀 *NOVO BRIEFING PREENCHIDO*\n\n`;
+            
+            mensagem += `*1. Aluno Ideal:*\n${q1}\n\n`;
+            mensagem += `*2. Maior Diferencial:*\n${q2}\n\n`;
+            mensagem += `*3. Entregáveis na Prática:*\n${q3}\n\n`;
+            mensagem += `*4. Planos e Valores:*\n${q4}\n\n`;
+            mensagem += `*5. Prova Social:*\n${q5}\n\n`;
+            mensagem += `*6. Objeções / Dúvidas Comuns:*\n${q6}\n\n`;
+            mensagem += `_Enviado através do formulário de estratégia._`;
+
+            // Codifica a mensagem para formato de link (URL)
+            const textoCodificado = encodeURIComponent(mensagem);
+
+            // Cria o link final da API do WhatsApp
+            const urlFinal = `https://wa.me/${numeroWhatsApp}?text=${textoCodificado}`;
+
+            // Abre o WhatsApp em uma nova aba com a mensagem pronta
+            window.open(urlFinal, '_blank');
+        }
+    </script>
+</body>
+</html>
